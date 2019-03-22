@@ -65,7 +65,8 @@ function init() {
   //stats = new Stats();
   //container.appendChild( stats.dom );
   document.addEventListener( 'mousemove', onDocumentMouseMove, false );
-  window.addEventListener( 'resize', onWindowResize, false );
+  document.addEventListener( 'mousedown', onDocumentMouseDown, false );
+window.addEventListener( 'resize', onWindowResize, false );
 }
 
 function onWindowResize() {
@@ -78,6 +79,14 @@ function onDocumentMouseMove( event ) {
   event.preventDefault();
   mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
   mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
+}
+
+function onDocumentMouseDown( event ) {
+  event.preventDefault();
+  var intersects = raycaster.intersectObjects(objects,true);
+if (intersects.length > 0 ){
+  intersects[0].object.material.color.set( Math.random() * 0xffffff );
+}
 }
 
 //
@@ -101,7 +110,7 @@ function render() {
   //Find intersections
   raycaster.setFromCamera( mouse, camera );
   //var intersects = raycaster.intersectObjects( scene.children );
-
+/*
   var intersects = raycaster.intersectObjects( objects, true );
 
   if ( intersects.length > 0 ) {
@@ -114,6 +123,6 @@ function render() {
   } else {
     if ( INTERSECTED ) INTERSECTED.material.emissive.setHex( INTERSECTED.currentHex );
     INTERSECTED = null;
-  }
+  }*/
   renderer.render( scene, camera );
 }
