@@ -52,7 +52,7 @@ function init() {
   requestAnimationFrame(drawFrame);
 
 
-  rot += 0.001;
+  rot += 0.05;
 
   //forEach takes all the array entries and passes the c as the object, and i as the index
   cubes.forEach(function(c, i) {
