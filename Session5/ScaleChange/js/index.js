@@ -45,6 +45,7 @@ function init() {
   controls = new THREE.OrbitControls(camera, renderer.domElement);
 
   //Create a two dimensional grid of objects, and position them accordingly
+/*
   for (var x = -10; x <= 10; x += 5) { // Start from -35 and sequentially add one every 5 pixels
     for (var y = -10; y <= 10; y += 5) {//调整个数
       var boxGeometry = new THREE.BoxGeometry(3, 3, 3);
@@ -81,15 +82,15 @@ function init() {
 
     }
   }
-
+*/
   geometry1 = new THREE.TorusGeometry( 20, 0.8, 16, 100  );
   material1 = new THREE.MeshBasicMaterial( { color: "#4876FF" } );
   mesh1 = new THREE.Mesh( geometry1, material1 );
   scene.add( mesh1 );
   cubes.push(mesh1);
-        mesh.rotation.x = Math.random() * 2 * Math.PI;;
-        mesh.rotation.y = Math.random() * 2 * Math.PI;;
-        mesh.rotation.z = Math.random() * 2 * Math.PI;;
+        mesh1.rotation.x = Math.random() * 2 * Math.PI;;
+        mesh1.rotation.y = Math.random() * 2 * Math.PI;;
+        mesh1.rotation.z = Math.random() * 2 * Math.PI;;
 
         var rotValX = (Math.random() * 0.05) - 0.025;
         var rotValY = (Math.random() * 0.05) - 0.025;
