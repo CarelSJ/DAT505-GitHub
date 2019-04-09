@@ -49,9 +49,9 @@ function init() {
 
 controls = new THREE.OrbitControls(camera,renderer.domElement);
 //内循环
-   for (var x = -10; x <= 10; x += 5) {
-   for (var z = -10; z <= 10; z += 5) {
-   for (var y = -10; y <= 10; y += 5) {
+   for (var x = -10; x <= 10; x += 6) {
+   for (var z = -10; z <= 10; z += 6) {
+   for (var y = -10; y <= 10; y += 6) {
     // Start from -45 and sequentially add one every 5 pixels
   //for (var y = -30; y <= 30; y += 5) {
     //管理器页面x,y，z坐标检测

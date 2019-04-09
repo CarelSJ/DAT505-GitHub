@@ -1,17 +1,7 @@
 var renderer, scene, camera;
 var controls;
 var cube = [];//cube可改名
-var rotX = [];
-var rotY = [];
-var scaleX = [];
-var scaleY = [];
-var scaleZ = [];
-var rotValX = [];
-var rotValY = [];
-var scaleCube = [];
-
 var rot = 0;
-var randomSpeedX = [];
 
 function init() {
   scene = new THREE.Scene();
@@ -20,12 +10,12 @@ function init() {
       H = window.innerHeight;
 
   camera = new THREE.PerspectiveCamera(45, W / H, .1, 1000);
-  camera.position.set(0, 55, 85);
+  camera.position.set(0, 0, 45);
   camera.lookAt(scene.position);
 
 
   var spotLight = new THREE.SpotLight(0xFFFFFF);
-  spotLight.position.set(-500, 0, 800);
+  spotLight.position.set(500, 1000, 400);
   scene.add(spotLight);
 
   spotLight.castShadow = true;
@@ -42,7 +32,7 @@ function init() {
   //renderer.shadowMapEnabled = true;
 
   //Create a two dimensional grid of objects, and position them accordingly
-/*
+
   for (var x = -49; x <= 49; x += 5) { // Start from -45 and sequentially add one every 5 pixels
     //for (var y = -30; y <= 30; y += 5) {
       var boxGeometry = new THREE.BoxGeometry(3, 6, 3);
@@ -54,20 +44,20 @@ function init() {
       mesh.position.z = 0;
       mesh.scale.y = 0.5;
       scene.add(mesh);
-*/
+}
 
 
 controls = new THREE.OrbitControls(camera,renderer.domElement);
-//内循环
-   for (var x = -10; x <= 10; x += 5) {
-   for (var z = -10; z <= 10; z += 5) {
-   for (var y = -10; y <= 10; y += 5) {
+/*//内循环
+   for (var x = -10; x <= 10; x += 6) {
+   for (var z = -10; z <= 10; z += 6) {
+   for (var y = -10; y <= 10; y += 6) {
     // Start from -45 and sequentially add one every 5 pixels
   //for (var y = -30; y <= 30; y += 5) {
     //管理器页面x,y，z坐标检测
     //console.log("x:" +x,"y:" +y,"z:" +z);
 
-    var boxGeometry1 = new THREE.BoxGeometry(30, 30, 30);
+    var boxGeometry1 = new THREE.BoxGeometry(3, 3, 3);
 
     if (x >= 0 && z >= 0 && y >= 0){
       var boxMaterial1 = new THREE.MeshLambertMaterial({color:0x76EEC6});
@@ -93,36 +83,12 @@ controls = new THREE.OrbitControls(camera,renderer.domElement);
     //var boxMaterial1 = new THREE.MeshLambertMaterial({color: Math.random() * 0xFFFFFF});
 
     var mesh1 = new THREE.Mesh(boxGeometry1, boxMaterial1);
-
-    mesh1.rotation.x = Math.random() * 2 * Math.PI;
-    mesh1.rotation.y = Math.random() * 2 * Math.PI;
-    mesh1.rotation.z = Math.random() * 2 * Math.PI;
-
-    mesh1.position.x = x;
-    mesh1.position.z = y;
-
-    mesh1.scale.x = 300;
-    mesh1.scale.y = 0.01;
-    mesh1.scale.z = 0.01;
-
-    var rotValX = (Math.random() * 0.05) - 0.025;
-    var rotValY = (Math.random() * 0.05) - 0.025;
-    var scValX = Math.random() * 20;
-   var scValZ = Math.random();
-   var scValY = Math.random();
-
-    rotX.push(rotValX);
-    rotY.push(rotValY);
-    scaleX.push(scValX);
-    scaleY.push(scValY);
-    scaleZ.push(scValZ);
-
-    scaleCube.push(-scValX);
-
     //mesh.castShadow = true;
-
-
-
+    mesh1.rotation.x = x;
+    mesh1.position.z = z;
+    mesh1.position.y = y;
+    mesh1.position.x = x;
+    //mesh1.scale.y = 0.5;
     scene.add(mesh1);
     cube.push(mesh1);
     console.log(mesh1);
@@ -131,7 +97,7 @@ controls = new THREE.OrbitControls(camera,renderer.domElement);
   }
   }
 
-/*//20个方块
+/*20个方块
 for (var x = -49; x <= 49; x += 5) { // Start from -45 and sequentially add one every 5 pixels
   //for (var y = -30; y <= 30; y += 5) {
     var boxGeometry3 = new THREE.BoxGeometry(3, 6, 3);
@@ -154,16 +120,12 @@ for (var x = -49; x <= 49; x += 5) { // Start from -45 and sequentially add one 
   function drawFrame(){
   requestAnimationFrame(drawFrame);
  //物体旋转
+  rot += 0.01;
 
- cube.forEach(function(c, i) {
-   c.rotation.x += rotX[i]; //Rotate the object that is referenced in c
-   c.rotation.y += rotY[i];
-
-  scaleCube[i] += 0.1;
-  if (scaleCube > 20) scaleCube =-20;
-    c.scale.x = scaleCube[i];//改变X轴大小
-
- });
+  cube.forEach(function(c,i){
+  c.rotation.x = rot;
+  c.rotation.y = rot;
+  });
 
   renderer.render(scene, camera);
 }
