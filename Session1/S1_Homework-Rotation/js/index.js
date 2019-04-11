@@ -40,7 +40,7 @@ function geometry(){
   var light2 = new THREE.PointLight(0xffffff, 0.5);
   scene.add(light2);
 
-  //Central Green Planet (Map) 中心绿色星球（贴图）
+  //Central  Planet (Map) 中心绿色星球（贴图）
   geometry = new THREE.IcosahedronBufferGeometry( 150, 1  );
   //var texture1 = new THREE.TextureLoader().load("1planet.jpg");
   material = new THREE.MeshPhongMaterial({

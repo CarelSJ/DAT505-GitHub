@@ -1,15 +1,30 @@
-# SESSION 4
+# Session 4
+========
+
 The file name with Example is the case study in class.
+
 The file name with Homework is the relevant homework about this session.
+
 The file name with Exercise is the exercise about this session.
-In this session,we learned the method of use For Loop to realize object replication
-and let the cube rotates in random speed and direction.
+
+## Description - S4 ##
+
+In this session,we learned the method of use For Loop to realize object replication and
+let the cube rotates in random speed and direction.
 
 And in the homework, we learn how to let the cubes face diffrtent direction(random in 3D X,Y,Z).
+
+### S4 - Exercise - BasicMaterialsChange ###
+
+#### Code - index.js ####
+
 The basic structure(random in direction):
-mesh.rotation.x = 360*Math.random()
+```javascript
+mesh.rotation.x = 360*Math.random();
+```
 
 The basic structure(degree):
+```javascript
 // Angle Definition
 var de2ra = function(degree) {
   return degree*(Math.PI/180);
@@ -17,8 +32,13 @@ var de2ra = function(degree) {
 ...
 //Let the object rotate 90 degrees around the Z axis
 mesh.rotation.z = de2ra(90);
+```
 
-At the same time, in the classroom, we learned the combination and use of for loop and if statement code.
+### S4 - Homework - ArryDifferentCubes ###
+
+#### Code - index.js ####
+The combination of use of ForLoop and If statement code:
+```javascript
 The basic structure(For Loop and if else):
 for (var x = -10; x <= 10; x += 5) {
 for (var z = -10; z <= 10; z += 5) {
@@ -31,8 +51,11 @@ for (var y = -10; y <= 10; y += 5) {
  }else {
    var boxMaterial1 = new THREE.MeshLambertMaterial({color: 0xFFFFFF});
  }
+```
 
 The basic structure (the way of let the cubes rotate in different speed):
+
+```javascript
 var rotX = [];
 var rotY = [];
 var rotValX = [];
@@ -47,3 +70,4 @@ rotY.push(rotValY);
 cube.forEach(function(c, i) {
   c.rotation.x += rotX[i]; //Rotate the object that is referenced in c
   c.rotation.y += rotY[i];
+  ```

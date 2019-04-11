@@ -1,11 +1,22 @@
-# SESSION 3
+# Session 3
+========
+
 The file name with Example is the case study in class.
+
 The file name with Homework is the relevant homework about this session.
+
 The file name with Exercise is the exercise about this session.
+
+## Description - S3 ##
+
 In this session,we learned how to add the GUI in THREE.JS.
 
-Basic structure( GUI of scale):
-(Add controller values for GUI.Set preset values for controllers)
+### S3 - Exercise - BasicMaterialsChange ###
+
+#### Code - index.js ####
+Control the scaleX of the object (GUI):
+```javascript
+//Add controller values for GUI.Set preset values for controllers
 var controller = new function(){
   this.scaleX = 1;//Initial value
   this.scaleY = 1;
@@ -17,8 +28,14 @@ var f1 = gui.addFolder('Scale');//Define the folder name
 f1.add(controller,'scaleX',0.1,5).onChange(function(){
 mesh.scale.x = (controller.scaleX);
 });//Add the first controller (scale x)
+```
+
+### S3 - Homework-InterplanetaryCrossing ###
+
+#### Code - index.js ####
 
 Code of Particle System in Homework：
+```javascript
 function makeParticles() {
     var particle, material;
    //We're going to be from position Z - 1000 (far away)
@@ -61,3 +78,4 @@ function updateParticles() {
         if(particle.position.z>500) particle.position.z-=2000;
     }
 }
+```

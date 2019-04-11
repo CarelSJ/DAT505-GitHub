@@ -1,13 +1,25 @@
-# SESSION 8
+# Session 8
+========
+
 The file name with Example is the case study in class.
+
 The file name with Homework is the relevant homework about this session.
+
 The file name with Exercise is the exercise about this session.
+
+## Description - S8 ##
+
 In this session,we learned the method of Mouse Click Interaction (Random Color Transform).
-And the Import of model.
-And the Strengthen of Eyes Interaction ( Let the center of all eyes always follow the movement of the mouse.)
+The Import of model.
+The Strengthen of Eyes Interaction ( Let the center of all eyes always follow the movement of the mouse.)
 Let the eye coordinates in all spaces(3D) turn into Planar coordinate system (2D).
 
-Code -- let the eyes follow the mouse to rotate.
+### S8 - Homework-EyesInteraction2X ###
+
+#### Code - index.js ####
+
+Let the eyes follow the mouse to rotate:
+```javascript
 for (var i = 0; i < eyesNum; i++) {
 
   eyes[0].rotation.y = map_range(mouseX, 0, window.innerWidth, -1.14, 1.14);
@@ -33,8 +45,14 @@ for (var i = 0; i < eyesNum; i++) {
       if (mouseY<35) eyes[4].rotation.x = map_range(mouseY, 0, 35, 0, -0.25);
       else eyes[4].rotation.x = map_range(mouseY, 35, window.innerHeight, 0.25, 1.14)
 }
+```
 
-Code -- Mouse Click Control 
+### S8 - Homework-ObjLoader-Click-RandomColour ###
+
+#### Code - index.js ####
+Mouse Click Control:
+```javascript
 document.addEventListener( 'mousemove', onDocumentMouseMove, false );
 document.addEventListener( 'mousedown', onDocumentMouseDown, false );
 window.addEventListener( 'resize', onWindowResize, false );
+```
