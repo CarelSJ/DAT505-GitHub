@@ -28,6 +28,7 @@ Through this code, to call the whole project.
   <script src="js/index.js"></script>
   </body>
   ```
+  ![S1-homework](https://github.com/CarelSJ/DAT505-GitHub/blob/master/images/S1-homework.png)
 
 #### Code - index.js ####
 
