@@ -108,8 +108,8 @@ controls = new THREE.OrbitControls(camera,renderer.domElement);
     var rotValX = (Math.random() * 0.05) - 0.025;
     var rotValY = (Math.random() * 0.05) - 0.025;
     var scValX = Math.random() * 20;
-   var scValZ = Math.random();
-   var scValY = Math.random();
+    var scValZ = Math.random();
+    var scValY = Math.random();
 
     rotX.push(rotValX);
     rotY.push(rotValY);
