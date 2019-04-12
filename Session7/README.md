@@ -7,6 +7,8 @@ The file name with **Homework** is the relevant homework about this session.
 
 The file name with **Exercise** is the exercise about this session.
 
+[GitHub - CarelSJ](https://github.com/CarelSJ/DAT505-GitHub)
+
 ## Description - S7 ##
 
 In this session,we learn the method to let the textures of cubes appear randomly.

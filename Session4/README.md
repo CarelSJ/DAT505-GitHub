@@ -7,6 +7,8 @@ The file name with **Homework** is the relevant homework about this session.
 
 The file name with **Exercise** is the exercise about this session.
 
+[GitHub - CarelSJ](https://github.com/CarelSJ/DAT505-GitHub)
+
 ## Description - S4 ##
 
 In this session,we learned the method of use ForLoop to realize object replication and
@@ -82,4 +84,4 @@ cube.forEach(function(c, i) {
 ![S4-04](https://github.com/CarelSJ/DAT505-GitHub/blob/master/images/S4-04.png)
 
 ### S4 - Homework-LineChangeRegular ###
-![S4-06](https://github.com/CarelSJ/DAT505-GitHub/blob/master/images/S4-05.png)
+![S4-06](https://github.com/CarelSJ/DAT505-GitHub/blob/master/images/S4-06.png)
