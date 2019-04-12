@@ -17,6 +17,9 @@ And the method to let the Eyes follow the mouse.(Conversion from 3D to 2D Plane)
 ### S7 - Exercise-RandomTexture-Cube ###
 ![S7-01](https://github.com/CarelSJ/DAT505-GitHub/blob/master/images/S7-01.png)
 #### Code - index.js ####
+
+[S7 - Exercise-RandomTexture-Cube - index.js](https://github.com/CarelSJ/DAT505-GitHub/blob/master/Session7/S7_Exercise-RandomTexture-Cube/js/index.js)
+
 Add the texture randomly:
 ```javascript
 // Load a texture
@@ -27,6 +30,7 @@ material = new THREE.MeshBasicMaterial( { map: texture} );
 
 Let the objects show in random place:
 ```javascript
+//Let the box always appear on the screen
 if ( cubes[i].position.y <- 50){
    cubes[i].position.y = 30;
    cubes[i].position.x = (Math.random() * -40) +20;//Define location
@@ -39,6 +43,9 @@ if ( cubes[i].position.y <- 50){
 ### S7 - Homework-EyesFollowInteraction ###
 ![S7-02](https://github.com/CarelSJ/DAT505-GitHub/blob/master/images/S7-02.png)
 #### Code - index.js ####
+
+[S7 - Homework-EyesFollowInteraction - index.js](https://github.com/CarelSJ/DAT505-GitHub/blob/master/Session7/S7_Homework-EyesFollowInteraction/js/index.js)
+
 Let the eyeball forLoop(30):
 ```javascript
 for(a=0;a<30;a++){
@@ -60,4 +67,12 @@ Define the size and position of the eyeball randomly:
   mesh.scale.x = scale;
   mesh.scale.y = scale;
   mesh.scale.z = scale;
+```
+
+Let the eyeball always follow the mouse:
+```javascript
+cubes.forEach(function(c,i){
+	cubes[i].rotation.x=mouseY/window.innerHeight*2;
+	cubes[i].rotation.y=mouseX/window.innerWidth*2;
+});
 ```

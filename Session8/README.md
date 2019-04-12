@@ -20,6 +20,8 @@ Let the eye coordinates in all spaces(3D) turn into Planar coordinate system (2D
 ![S8-01](https://github.com/CarelSJ/DAT505-GitHub/blob/master/images/S8-01.png)
 #### Code - index.js ####
 
+[S8 - Homework-EyesInteraction2X- index.js](https://github.com/CarelSJ/DAT505-GitHub/blob/master/Session8/S8_Homework-EyesInteraction2X/js/index.js)
+
 Let the eyes follow the mouse to rotate:
 ```javascript
 for (var i = 0; i < eyesNum; i++) {
@@ -52,9 +54,31 @@ for (var i = 0; i < eyesNum; i++) {
 ### S8 - Homework-ObjLoader-Click-RandomColour ###
 ![S8-02](https://github.com/CarelSJ/DAT505-GitHub/blob/master/images/S8-02.png)
 #### Code - index.js ####
-Mouse Click Control:
+
+[S8 - Homework-ObjLoader-Click-RandomColour - index.js](https://github.com/CarelSJ/DAT505-GitHub/blob/master/Session8/S8_Homework-ObjLoader-Click-RandomColour/js/index.js)
+
+Mouse Click/Move Control:
 ```javascript
 document.addEventListener( 'mousemove', onDocumentMouseMove, false );
 document.addEventListener( 'mousedown', onDocumentMouseDown, false );
 window.addEventListener( 'resize', onWindowResize, false );
+```
+
+Mouse Click/Move discoloration：
+
+```javascript
+function onDocumentMouseMove( event ) {
+  event.preventDefault();
+  mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+  mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
+}
+
+function onDocumentMouseDown( event ) {
+  event.preventDefault();
+  var intersects = raycaster.intersectObjects(objects,true);
+if (intersects.length > 0 ){
+  intersects[0].object.material.color.set( Math.random() * 0xffffff );
+}
+}
+
 ```

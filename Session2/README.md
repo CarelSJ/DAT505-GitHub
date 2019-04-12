@@ -52,8 +52,12 @@ var material = new THREE.MeshBasicMaterial({map:texture});
 ### S2 - Exercise - COPY - SquareMaterial ###
 The file name with Copy is the Example learning from the THREE.JS library.
 (need call the code from three-3.js-master to realize the project )
+
   ![S2-02](https://github.com/CarelSJ/DAT505-GitHub/blob/master/images/S2-02.png)
+
 #### Usage - index.html ####
+
+[S2-Exercise-COPY-SquareMaterial - index.html](https://github.com/CarelSJ/DAT505-GitHub/blob/master/Session2/S2_Exercise-COPY_SquareMaterial/index.html)
 
 ```html
 <script src="build/three.js"></script>
@@ -93,8 +97,38 @@ void main() {
 </script>
 ```
 
+#### Code - index.js ####
+[S2-Exercise-COPY-SquareMaterial - index.js](https://github.com/CarelSJ/DAT505-GitHub/blob/master/Session2/S2_Exercise-COPY_SquareMaterial/js/index.js)
+
+Add the SKYDOME into the scene:
+```javascript
+var vertexShader = document.getElementById( 'vertexShader' ).textContent;
+var fragmentShader = document.getElementById( 'fragmentShader' ).textContent;
+var uniforms = {
+topColor: { type: "c", value: new THREE.Color( 0x0077ff ) },
+bottomColor: { type: "c", value: new THREE.Color( 0xffffff ) },
+offset: { type: "f", value: 400 },
+exponent: { type: "f", value: 0.6 }
+};
+uniforms.topColor.value.copy( light.color );
+
+var skyGeo = new THREE.SphereBufferGeometry( 4000, 32, 15 );
+var skyMat = new THREE.ShaderMaterial( {
+uniforms: uniforms,
+vertexShader: vertexShader,
+fragmentShader: fragmentShader,
+side: THREE.BackSide
+} );
+
+var sky = new THREE.Mesh( skyGeo, skyMat );
+scene.add( sky );
+```
+
 ### S2 - Homework-Planet ###
 ![S2-03](https://github.com/CarelSJ/DAT505-GitHub/blob/master/images/S2-03.png)
+#### Code - index.js ####
+[S2-Homework-Planet - index.js](https://github.com/CarelSJ/DAT505-GitHub/blob/master/Session2/S2_Homework-Planet/js/index.js)
+
 Add the PointLight into the scene:
 ```javascript
 var light1 = new THREE.AmbientLight(0xffffff, 0.5);
@@ -102,4 +136,37 @@ scene.add(light1);
 
 var light2 = new THREE.PointLight(0xffffff, 0.5);
 scene.add(light2);
+```
+Add the Loop (Animation) into the objects:
+```javascript
+// Render Loop
+var render = function () {
+  requestAnimationFrame( render );
+
+  mesh.rotation.x += 0.01; //Continuously rotate the geometric sphere1 球1
+  mesh.rotation.y += 0.01;
+
+  mesh1.rotation.x += 0.02; //Continuously rotate the geometric ring2 环2
+  mesh1.rotation.y += 0.06;
+
+  mesh2.rotation.x += 0.005; //Continuously rotate the geometric sphere2 黑球2
+  mesh2.rotation.y += 0.005;
+
+  mesh3.rotation.x += 0.003; //Continuously rotate the sphere3 最小球3
+  mesh3.rotation.y += 0.003;
+
+  mesh4.rotation.x += 0.04; //Continuously rotate the geometric ring1 环1
+  mesh4.rotation.y += 0.06;
+
+  mesh5.rotation.x += 0.005; //Continuously rotate the geometric ring3 环3
+  mesh5.rotation.y += 0.005;
+
+  mesh6.rotation.x += 0.004; //Continuously rotate the geometric yellow sphere 左上黄球
+  mesh6.rotation.y += 0.006;
+
+  mesh7.rotation.x += 0.009; //Continuously rotate the geometric Left upper ring 左上环
+  mesh7.rotation.y += 0.009;
+
+  mesh8.rotation.x += 0.004; //Continuously rotate the geometric Left upper ring 左上环
+  mesh8.rotation.y += 0.006;
 ```

@@ -81,7 +81,7 @@ var render = function () {
 ### S1 - Homework - Rotation ###
   ![S1-01](https://github.com/CarelSJ/DAT505-GitHub/blob/master/images/S1-01.png)
 #### Code - index.js ####
-
+[S1-Homework-Rotation - index.js](https://github.com/CarelSJ/DAT505-GitHub/blob/master/Session1/S1_Homework-Rotation/js/index.js)
 ```javascript
 //Define central geometry
 var geometry = new THREE.IcosahedronBufferGeometry( 150, 1  );
