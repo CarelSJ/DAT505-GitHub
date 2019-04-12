@@ -1,11 +1,11 @@
 # Session 3
 ========
 
-The file name with Example is the case study in class.
+The file name with **Example** is the case study in class.
 
-The file name with Homework is the relevant homework about this session.
+The file name with **Homework** is the relevant homework about this session.
 
-The file name with Exercise is the exercise about this session.
+The file name with **Exercise** is the exercise about this session.
 
 ## Description - S3 ##
 
@@ -31,7 +31,9 @@ mesh.scale.x = (controller.scaleX);
 ```
 
 ### S3 - Homework-InterplanetaryCrossing ###
+  ![S3-01](https://github.com/CarelSJ/DAT505-GitHub/blob/master/images/S3-01.png)
 
+  ![S3-02](https://github.com/CarelSJ/DAT505-GitHub/blob/master/images/S3-02.png)
 #### Code - index.js ####
 
 Code of Particle System in Homework：
@@ -79,3 +81,6 @@ function updateParticles() {
     }
 }
 ```
+
+### S3 - Homework-2DForest ###
+  ![S3-2D](https://github.com/CarelSJ/DAT505-GitHub/blob/master/images/S3-2D.png)

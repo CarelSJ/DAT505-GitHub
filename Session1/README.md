@@ -1,15 +1,17 @@
 # Session 1
 ========
 
-The file name with Example is the case study in class.
+The file name with **Example** is the case study in class.
 
-The file name with Homework is the relevant homework about this session.
+The file name with **Homework** is the relevant homework about this session.
 
-The file name with Exercise is the exercise about this session.
+The file name with **Exercise** is the exercise about this session.
+
+[GitHub - CarelSJ](https://github.com/CarelSJ/DAT505-GitHub)
 
 ## Description - S1 ##
 
-In this session,we learned the basic structure of Three.js
+In this session,we learned the *basic structure* of Three.js
 
 Use the three.js to build a rotating cube.
 
@@ -31,7 +33,7 @@ Through this code, to call the whole project.
 
 #### Code - index.js ####
 
-Three.js - Basic Structure:
+Three.js - *Basic Structure*:
 
 ```javascript
 var scene, camera, renderer;
@@ -77,7 +79,7 @@ var render = function () {
 };
 ```
 ### S1 - Homework - Rotation ###
-  ![S1-homework](https://github.com/CarelSJ/DAT505-GitHub/blob/master/images/S1-homework.png)
+  ![S1-01](https://github.com/CarelSJ/DAT505-GitHub/blob/master/images/S1-01.png)
 #### Code - index.js ####
 
 ```javascript
@@ -120,4 +122,21 @@ var mesh2 = new THREE.Mesh( geometry2, material2 );
 var border2 = new THREE.EdgesHelper( mesh2,0xffff00 )
 mesh2.position.z = -1000;
 scene.add( mesh2 );
+```
+
+The loop of rotation:
+```javascript
+// Render Loop
+var render = function () {
+  requestAnimationFrame( render );
+
+  mesh.rotation.x += 0.01; //Continuously rotate the geometry
+  mesh.rotation.y += 0.01;
+
+  mesh1.rotation.x += 0.02;
+  mesh1.rotation.y += 0.06;
+  // Render the scene
+  renderer.render(scene, camera);
+
+};
 ```

@@ -1,11 +1,11 @@
 # Session 7
 ========
 
-The file name with Example is the case study in class.
+The file name with **Example** is the case study in class.
 
-The file name with Homework is the relevant homework about this session.
+The file name with **Homework** is the relevant homework about this session.
 
-The file name with Exercise is the exercise about this session.
+The file name with **Exercise** is the exercise about this session.
 
 ## Description - S7 ##
 
@@ -13,7 +13,7 @@ In this session,we learn the method to let the textures of cubes appear randomly
 And the method to let the Eyes follow the mouse.(Conversion from 3D to 2D Plane)
 
 ### S7 - Exercise-RandomTexture-Cube ###
-
+![S7-01](https://github.com/CarelSJ/DAT505-GitHub/blob/master/images/S7-01.png)
 #### Code - index.js ####
 Add the texture randomly:
 ```javascript
@@ -35,7 +35,7 @@ if ( cubes[i].position.y <- 50){
 ```
 
 ### S7 - Homework-EyesFollowInteraction ###
-
+![S7-02](https://github.com/CarelSJ/DAT505-GitHub/blob/master/images/S7-02.png)
 #### Code - index.js ####
 Let the eyeball forLoop(30):
 ```javascript

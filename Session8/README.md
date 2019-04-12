@@ -1,11 +1,11 @@
 # Session 8
 ========
 
-The file name with Example is the case study in class.
+The file name with **Example** is the case study in class.
 
-The file name with Homework is the relevant homework about this session.
+The file name with **Homework** is the relevant homework about this session.
 
-The file name with Exercise is the exercise about this session.
+The file name with **Exercise** is the exercise about this session.
 
 ## Description - S8 ##
 
@@ -15,7 +15,7 @@ The Strengthen of Eyes Interaction ( Let the center of all eyes always follow th
 Let the eye coordinates in all spaces(3D) turn into Planar coordinate system (2D).
 
 ### S8 - Homework-EyesInteraction2X ###
-
+![S8-01](https://github.com/CarelSJ/DAT505-GitHub/blob/master/images/S8-01.png)
 #### Code - index.js ####
 
 Let the eyes follow the mouse to rotate:
@@ -48,7 +48,7 @@ for (var i = 0; i < eyesNum; i++) {
 ```
 
 ### S8 - Homework-ObjLoader-Click-RandomColour ###
-
+![S8-02](https://github.com/CarelSJ/DAT505-GitHub/blob/master/images/S8-02.png)
 #### Code - index.js ####
 Mouse Click Control:
 ```javascript

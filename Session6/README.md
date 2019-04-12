@@ -1,11 +1,11 @@
 # Session 6
 ========
 
-The file name with Example is the case study in class.
+The file name with **Example** is the case study in class.
 
-The file name with Homework is the relevant homework about this session.
+The file name with **Homework** is the relevant homework about this session.
 
-The file name with Exercise is the exercise about this session.
+The file name with **Exercise** is the exercise about this session.
 
 ## Description - S6 ##
 
@@ -14,7 +14,8 @@ In this session,we learned the method of using code to let Example look like the
 Through the use of wireframe, let the cubes just have the Outer frame.
 
 ### S6 - Exercise-FloatingCube ###
-
+![S6-01](https://github.com/CarelSJ/DAT505-GitHub/blob/master/images/S6-01.png)
+![S6-02](https://github.com/CarelSJ/DAT505-GitHub/blob/master/images/S6-02.png)
 #### Code - index.js ####
 The material of the cubes:
 ```javascript

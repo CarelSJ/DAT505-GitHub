@@ -1,11 +1,11 @@
 # Session 5
 ========
 
-The file name with Example is the case study in class.
+The file name with **Example** is the case study in class.
 
-The file name with Homework is the relevant homework about this session.
+The file name with **Homework** is the relevant homework about this session.
 
-The file name with Exercise is the exercise about this session.
+The file name with **Exercise** is the exercise about this session.
 
 ## Description - S5 ##
 
@@ -13,7 +13,8 @@ In this session,we learned the method of using code to let the square rotate ran
 change its direction and size  randomly or regularly.
 
 ### S5 - Homework-ArrayMeshWaveEffect ###
-
+![S5-01](https://github.com/CarelSJ/DAT505-GitHub/blob/master/images/S5-01.png)
+![S5-02](https://github.com/CarelSJ/DAT505-GitHub/blob/master/images/S5-02.png)
 #### Code - index.js ####
 
 Basic structure(let the cubes move like the shape of wave):
