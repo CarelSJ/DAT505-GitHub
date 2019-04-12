@@ -1,5 +1,5 @@
 # DAT505-GitHub
-**Name:JIE SUN **   
+**Name:JIE SUN**   
 
 **English name:Carel**     
 
