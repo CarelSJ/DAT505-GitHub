@@ -2,15 +2,9 @@ var camera, scene, renderer, controls;
 
 var objects = [];
 var objects4 = [];
-
-/*
-var objects1 = [];
-var objects2 = [];
-var objects3 = [];
-
-var cubes = [];
+var objects5 = [];
+var objects6 = [];
 var raycaster;
-*/
 
 var moveForward = false;
 var moveBackward = false;
@@ -32,10 +26,6 @@ function init() {
 
 	var scene = new THREE.Scene();
 	scene.fog = new THREE.Fog( 0x000000, 1 , 1000 );//black fog
-
-	//add lights(envirment)
-	//var ambient = new THREE.AmbientLight( 0x8B4726 );
-  //scene.add( ambient );
 
   // The beginning light
 	var light1 = new THREE.SpotLight( 0xFFFFFF );
@@ -117,15 +107,15 @@ function init() {
   // create a global audio source
   var sound = new THREE.Audio( listener );
 
+
   // load a sound and set it as the Audio object's buffer
   var audioLoader = new THREE.AudioLoader();
   audioLoader.load( 'js/sounds/bgm.mp3', function( buffer ) {
 	sound.setBuffer( buffer );
 	sound.setLoop( true );
-	sound.setVolume( 0.5 );
+	sound.setVolume( 0.0 );
 	sound.play();
   });
-
 
 	// particle
   // transparentとblendingたぶん効いてない
@@ -136,7 +126,7 @@ function init() {
 	blending: THREE.AdditiveBlending
   });
 
-  particleCount = 500;
+  particleCount = 4000;
   particles = new THREE.Geometry();
 
   for (var i = 0; i < particleCount; i++) {
@@ -156,21 +146,17 @@ function init() {
 	// floor
 	geometry = new THREE.PlaneGeometry( 2000, 2000,80,80 );
 	geometry.applyMatrix( new THREE.Matrix4().makeRotationX( - Math.PI / 2 ) );
-
 	material = new THREE.MeshStandardMaterial({
 	transparent:true,
 	opacity:0.4,
-	//wireframe:true,
 	metalness: 0.3,
 	roughness: 0.6,
 	color: 0xFFFFFF,
 	side: THREE.DoubleSide
   });
 	material.lights = true;
-
-
 	mesh = new THREE.Mesh( geometry, material );
-	//mesh.castShadow = true;
+	mesh.castShadow = true;
 	mesh.receiveShadow = true;
 	scene.add( mesh );
 
@@ -178,7 +164,6 @@ function init() {
 	var shape = [];
 	geometry = new THREE.IcosahedronGeometry(300,0);
 	material2 = new THREE.MeshBasicMaterial({ color: 0xFFFACD , fog:false});
-	//material2.lights = true;
 	shape[0] = new THREE.Mesh( geometry, material2 );
 	shape[1] = new THREE.Mesh( geometry, material2 );
 	shape[2] = new THREE.Mesh( geometry, material2 );
@@ -187,8 +172,8 @@ function init() {
 	shape[2].position.set(-3000,2000,-5000);
 	scene.add(shape[0],shape[1],shape[2]);
   //moon light
-	var light2 = new THREE.SpotLight(0xffffff);
-	light2.position.set(-3500,2000,-5500);
+	var light2 = new THREE.PointLight(0xffffff);
+	light2.position.set(-3000,2000,-5000);
 	scene.add(light2);
 
   //The star
@@ -224,6 +209,91 @@ function init() {
 	}
 
 
+  for (var i = 0; i < 1000; i++) {
+  //编组
+	var treegroup = new THREE.Group();
+  //树干
+  var geonTreeBase = new THREE.BoxGeometry( 10,60,10 );
+	var matTreeBase = new THREE.MeshBasicMaterial( {color:0x8B4513});
+	var treeBase = new THREE.Mesh(geonTreeBase,matTreeBase);
+	treeBase.castShadow = true;
+	treeBase.receiveShadow = true;
+	treegroup.add(treeBase);
+
+	var matTreeLeaves = new THREE.MeshPhongMaterial( { color:0x228B22, shading:THREE.FlatShading});
+  var geomTreeLeaves1 = new THREE.CylinderGeometry(1, 12*3, 12*3, 4 );
+	var treeLeaves1 = new THREE.Mesh(geomTreeLeaves1,matTreeLeaves);
+	treeLeaves1.castShadow = true;
+	treeLeaves1.receiveShadow = true;
+	treeLeaves1.position.y = 40
+	treegroup.add(treeLeaves1);
+
+  var geomTreeLeaves2 = new THREE.CylinderGeometry( 1, 9*3, 9*3, 4 );
+	var treeLeaves2 = new THREE.Mesh(geomTreeLeaves2,matTreeLeaves);
+	treeLeaves2.castShadow = true;
+	treeLeaves2.position.y = 60;
+	treeLeaves2.receiveShadow = true;
+	treegroup.add(treeLeaves2);
+
+  var geomTreeLeaves3 = new THREE.CylinderGeometry( 1, 6*3, 6*3, 4);
+	var treeLeaves3 = new THREE.Mesh(geomTreeLeaves3,matTreeLeaves);
+	treeLeaves3.castShadow = true;
+	treeLeaves3.position.y = 75;
+	treeLeaves3.receiveShadow = true;
+	treegroup.add(treeLeaves3);
+
+  scene.add( treegroup );
+
+	treegroup.position.x = Math.floor( Math.random() * 200 - 100 ) * 20;//200 - 100
+	treegroup.position.z = Math.floor( Math.random() * 200 - 100 ) * 20;
+	var s = .1 + Math.random()*2;
+  treegroup.scale.set(s,s,s);
+	objects5.push( treegroup );
+	}
+
+  //CLOUD
+	for (var i = 0; i < 20; i++) {
+	var cloudgroup = new THREE.Group();
+	var geometry = new THREE.TetrahedronGeometry(160, 2);
+	var material = new THREE.MeshPhongMaterial({
+	    color: 0xffffff,
+	    shading: THREE.FlatShading,
+	});
+	var geometry1 = new THREE.TetrahedronGeometry(150, 2);
+	var material1 = new THREE.MeshPhongMaterial({
+	color: 0xffffff,
+	shading: THREE.FlatShading,
+	});
+
+	var cloud1 = new THREE.Mesh(geometry, material);
+	cloudgroup.add(cloud1);
+	var cloud2 = new THREE.Mesh(geometry1, material1);
+	cloudgroup.add(cloud2);
+
+  cloud1.scale.set(3, 1, 2);
+	cloud1.position.y = -305;
+	cloud1.castShadow = true;
+	cloud1.receiveShadow = true;
+
+	cloud2.scale.set(2, 1.3, 1.5);
+	cloud2.position.y = -280;
+  cloud2.position.x = -350;
+  cloud2.position.z = -200;
+	cloud2.castShadow = true;
+	cloud2.receiveShadow = true;
+
+	scene.add(cloudgroup);
+
+	cloudgroup.position.x = Math.floor( Math.random() * 200 - 100 ) * 20;//200 - 100
+	cloudgroup.position.y = Math.floor( Math.random() * 200 ) * 20 + 1000;
+	cloudgroup.position.z = Math.floor( Math.random() * 200 - 100 ) * 20;
+	cloudgroup.rotation.y = Math.random();
+	var s = .1 + Math.random()*0.8;
+	cloudgroup.scale.set(s,s,s);
+	objects6.push( cloudgroup );
+
+  }
+
 	//Settings for models and material
   var geometry0 = new THREE.CubeGeometry( 1, 1, 1 );
   //geometry.applyMatrix( new THREE.Matrix4().makeTranslation( 0, 0.5, 0 ) );
@@ -231,82 +301,73 @@ function init() {
 
   //Geometry to store all buildings of the city
   var cityGeometry = new THREE.Geometry();
-  for (var i = 0; i < 800; i++) {
-    //Create geometry as a clone
-    var building = new THREE.Mesh(geometry0.clone());
+  for (var i = 0; i < 300; i++) {
+  //Create geometry as a clone
+  var building = new THREE.Mesh(geometry0.clone());
 
-    //Randomize position and scale of the buildings
-    building.position.x = Math.floor( Math.random() * 200 - 100 ) * 20;//200 - 100
-    building.position.z = Math.floor( Math.random() * 200 - 100 ) * 20;
-    building.scale.x  = Math.pow(Math.random(), 2) * 50 + 80; //控制大小，x=y=z
-    building.scale.y  = Math.pow(Math.random(), 3) * building.scale.x * 8 + 8;
-    building.scale.z  = building.scale.x;
+  //Randomize position and scale of the buildings
+  building.position.x = Math.floor( Math.random() * 200 - 100 ) * 20;//200 - 100
+  building.position.z = Math.floor( Math.random() * 200 - 100 ) * 20;
+  building.scale.x  = Math.pow(Math.random(), 2) * 50 + 80; //控制大小，x=y=z
+  building.scale.y  = Math.pow(Math.random(), 3) * building.scale.x * 8 + 8;
+  building.scale.z  = building.scale.x;
 
-    //Merge all buildings to one model - cityGeometry
-    THREE.GeometryUtils.merge(cityGeometry, building);
+  //Merge all buildings to one model - cityGeometry
+  THREE.GeometryUtils.merge(cityGeometry, building);
   }
 
   //Mesh of the city
   var city = new THREE.Mesh(cityGeometry, material0);//定义所有城市的材质
 
   //Cast shadows of the models
-  //city.castShadow = true;
-  //city.receiveShadow = true;
+  city.castShadow = true;
+  city.receiveShadow = true;
   scene.add(city);
 
 
-  //The first part
-	/*
-	var geometry1 = new THREE.TetrahedronGeometry( 80 );
-	for ( var i = 0; i < 200; i ++ ) {
+  //The first
+	var geometry1 = new THREE.OctahedronGeometry( 20 );
 	var geometry1Material = new THREE.MeshBasicMaterial({wireframe:true,color: 0xEE0000});
-	var box2 = new THREE.Mesh( geometry1, geometry1Material );
-	box2.position.x = Math.floor( Math.random() * 200 - 200 ) * 10 - 100;
-	box2.position.y = Math.floor( Math.random() * 400 - 400 ) * 2 + 800 ;
-	box2.position.z = Math.floor( Math.random() * 200 - 200 ) * 10 - 100;
-	box2.rotation.x = Math.random();
-	box2.rotation.y = Math.random();
-	box2.rotation.z = Math.random();
+	var box1 = new THREE.Mesh( geometry1, geometry1Material );
+	box1.position.x = 300;
+	box1.position.y = 50;
+	box1.position.z = 300;
 
-	scene.add( box2 );
-	objects1.push( box2 );
-	}
+	scene.add( box1 );
+
+	var light3 = new THREE.PointLight(0xEE0000,1, 100 );
+	light3.position.set(300,50,300);
+	scene.add(light3);
 
 	//The second part
-	var geometry3 = new THREE.SphereBufferGeometry( 50, 32, 32 );;
-	for ( var i = 0; i < 200; i ++ ) {
-	var geometry1Materia3 = new THREE.MeshBasicMaterial({wireframe:true,color: 0xFFFFFF});
-	var box4 = new THREE.Mesh( geometry3, geometry1Materia3 );
-	box4.position.x = Math.floor( Math.random() * 200  ) * 10 + 100;
-	box4.position.y = Math.floor( Math.random() * 400 - 400 ) * 2 + 800 ;
-	box4.position.z = Math.floor( Math.random() * 200 - 200 ) * 10 + 100;
-	box4.rotation.x = Math.random();
-	box4.rotation.y = Math.random();
-	box4.rotation.z = Math.random();
+	var geometry2 = new THREE.TetrahedronGeometry( 20 );
+	var geometry1Materia2 = new THREE.MeshBasicMaterial({wireframe:true,color: 0xEEEE00});
+	var box2 = new THREE.Mesh( geometry2, geometry1Materia2 );
+	box2.position.x = -300;
+	box2.position.y = 50;
+	box2.position.z = -300;
 
-	scene.add( box4 );
-	objects3.push( box4 );
-	}
-  */
+	scene.add( box2 );
 
-	/*
+	var light4 = new THREE.PointLight(0xEEEE00,1, 100 );
+	light4.position.set(-300,50,-300);
+	scene.add(light4);
+
+
 	//part3
-	for (var x = -300; x < 300; x += 5) { // Start from -35 and sequentially add one every 5 pixels
-  for (var y = -300; y < 300; y += 5) {
-  var boxGeometry3 = new THREE.BoxGeometry(3, 3, 3);
-  //The color of the material is assigned a random color
-  var boxMaterial3 = new THREE.MeshNormalMaterial;
-  //mesh.castShadow = true;
-  var mesh = new THREE.Mesh(boxGeometry3, boxMaterial3);
+  var geometry3 = new THREE.SphereGeometry( 20);
+	var geometry1Materia3 = new THREE.MeshBasicMaterial({wireframe:true,color: 0x00FFFF});
+  var box3 = new THREE.Mesh(geometry3, geometry1Materia3);
+	box3.position.x = 0;
+	box3.position.y = 50;
+	box3.position.z = 0;
 
-  mesh.position.x = x ;
-  mesh.position.z = y ;
+	scene.add(box3);
 
-	scene.add(mesh);
-  cubes.push(mesh);
-  }
-  }
-	*/
+	var light5 = new THREE.PointLight(0x00FFFF,1, 100 );
+	light5.position.set(0,50,0);
+	scene.add(light5);
+
 
 	//render the sence
 	var renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
@@ -320,7 +381,7 @@ function init() {
 	//活动监听
 	window.addEventListener( 'resize', onWindowResize, false );
 
-	function onWindowResize() {
+	function onWindowResize(ts) {
 	camera.aspect = window.innerWidth / window.innerHeight;
 	camera.updateProjectionMatrix();
 	renderer.setSize( window.innerWidth, window.innerHeight );
@@ -354,12 +415,24 @@ function init() {
     c.rotation.z = rot; //Rotate the object that is referenced in c
     });
 
-   /*
-		cubes.forEach(function(c, i) {
-    c.scale.y =Math.sin(ts/500*Math.PI +
-    c.position.x*4.95 + c.position.z/10) + 1;
-    });
-    */
+		//the 1
+    box1.rotation.y += 0.03;
+		box1.rotation.x += 0.03;
+		box1.position.y = Math.sin(ts/500*Math.PI +
+	  box1.position.x*4.95 + box1.position.z/10)*5 + 1
+
+		//the 2
+    box2.rotation.y += 0.03;
+		box2.rotation.x += 0.03;
+		box2.position.y = Math.sin(ts/500*Math.PI +
+		box2.position.x*4.95 + box2.position.z/10)*5 + 1
+
+		//the 3
+		box3.rotation.y += 0.03;
+		box3.rotation.x += 0.03;
+		box3.position.y = Math.sin(ts/500*Math.PI +
+    box3.position.x*4.95 + box3.position.z/10)*5 + 1
+
 	scene.rotation.y += xSpeed;
 
   // パーティクル上下移動
