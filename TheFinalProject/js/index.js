@@ -216,6 +216,7 @@ function init() {
   var geonTreeBase = new THREE.BoxGeometry( 10,60,10 );
 	var matTreeBase = new THREE.MeshBasicMaterial( {color:0x8B4513});
 	var treeBase = new THREE.Mesh(geonTreeBase,matTreeBase);
+	treeBase.position.y = 20
 	treeBase.castShadow = true;
 	treeBase.receiveShadow = true;
 	treegroup.add(treeBase);
@@ -246,7 +247,7 @@ function init() {
 
 	treegroup.position.x = Math.floor( Math.random() * 200 - 100 ) * 20;//200 - 100
 	treegroup.position.z = Math.floor( Math.random() * 200 - 100 ) * 20;
-	var s = .1 + Math.random()*2;
+	var s = .1 + Math.random()*3;
   treegroup.scale.set(s,s,s);
 	objects5.push( treegroup );
 	}
@@ -294,6 +295,7 @@ function init() {
 
   }
 
+
 	//Settings for models and material
   var geometry0 = new THREE.CubeGeometry( 1, 1, 1 );
   //geometry.applyMatrix( new THREE.Matrix4().makeTranslation( 0, 0.5, 0 ) );
@@ -306,8 +308,8 @@ function init() {
   var building = new THREE.Mesh(geometry0.clone());
 
   //Randomize position and scale of the buildings
-  building.position.x = Math.floor( Math.random() * 200 - 100 ) * 20;//200 - 100
-  building.position.z = Math.floor( Math.random() * 200 - 100 ) * 20;
+  building.position.x = Math.floor( Math.random() * 200 - 100 ) * 20 + 2000; //200 - 100
+  building.position.z = Math.floor( Math.random() * 200 - 100 ) * 20 + 2000;
   building.scale.x  = Math.pow(Math.random(), 2) * 50 + 80; //控制大小，x=y=z
   building.scale.y  = Math.pow(Math.random(), 3) * building.scale.x * 8 + 8;
   building.scale.z  = building.scale.x;
@@ -315,6 +317,21 @@ function init() {
   //Merge all buildings to one model - cityGeometry
   THREE.GeometryUtils.merge(cityGeometry, building);
   }
+
+	for (var i = 0; i < 300; i++) {
+	//Create geometry as a clone
+	var building = new THREE.Mesh(geometry0.clone());
+
+	//Randomize position and scale of the buildings
+	building.position.x = Math.floor( Math.random() * 200 - 100 ) * 20 - 2000; //200 - 100
+	building.position.z = Math.floor( Math.random() * 200 - 100 ) * 20 - 2000;
+	building.scale.x  = Math.pow(Math.random(), 2) * 50 + 80; //控制大小，x=y=z
+	building.scale.y  = Math.pow(Math.random(), 3) * building.scale.x * 8 + 8;
+	building.scale.z  = building.scale.x;
+
+	//Merge all buildings to one model - cityGeometry
+	THREE.GeometryUtils.merge(cityGeometry, building);
+	}
 
   //Mesh of the city
   var city = new THREE.Mesh(cityGeometry, material0);//定义所有城市的材质
@@ -358,16 +375,29 @@ function init() {
   var geometry3 = new THREE.SphereGeometry( 20);
 	var geometry1Materia3 = new THREE.MeshBasicMaterial({wireframe:true,color: 0x00FFFF});
   var box3 = new THREE.Mesh(geometry3, geometry1Materia3);
-	box3.position.x = 0;
+	box3.position.x = -300;
 	box3.position.y = 50;
-	box3.position.z = 0;
+	box3.position.z = 300;
 
 	scene.add(box3);
 
 	var light5 = new THREE.PointLight(0x00FFFF,1, 100 );
-	light5.position.set(0,50,0);
+	light5.position.set(-300,50,300);
 	scene.add(light5);
 
+  //part4
+	var geometry4 = new THREE.BoxGeometry( 20,20,20);
+	var geometry1Materia4 = new THREE.MeshBasicMaterial({wireframe:true,color: 0x00FF00});
+	var box4 = new THREE.Mesh(geometry4, geometry1Materia4);
+	box4.position.x = 300;
+	box4.position.y = 50;
+	box4.position.z = -300;
+
+	scene.add(box4);
+
+	var light6 = new THREE.PointLight(0x00FF00,1, 100 );
+	light6.position.set(300,50,-300);
+	scene.add(light6);
 
 	//render the sence
 	var renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
@@ -419,19 +449,25 @@ function init() {
     box1.rotation.y += 0.03;
 		box1.rotation.x += 0.03;
 		box1.position.y = Math.sin(ts/500*Math.PI +
-	  box1.position.x*4.95 + box1.position.z/10)*5 + 1
+	  box1.position.x*4.95 + box1.position.z/10)*5 + 100
 
 		//the 2
     box2.rotation.y += 0.03;
 		box2.rotation.x += 0.03;
 		box2.position.y = Math.sin(ts/500*Math.PI +
-		box2.position.x*4.95 + box2.position.z/10)*5 + 1
+		box2.position.x*4.95 + box2.position.z/10)*5 + 100
 
 		//the 3
 		box3.rotation.y += 0.03;
 		box3.rotation.x += 0.03;
 		box3.position.y = Math.sin(ts/500*Math.PI +
-    box3.position.x*4.95 + box3.position.z/10)*5 + 1
+    box3.position.x*4.95 + box3.position.z/10)*5 + 100
+
+		//the 4
+		box4.rotation.y += 0.03;
+		box4.rotation.x += 0.03;
+		box4.position.y = Math.sin(ts/500*Math.PI +
+		box4.position.x*4.95 + box3.position.z/10)*5 + 100
 
 	scene.rotation.y += xSpeed;
 
