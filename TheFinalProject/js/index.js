@@ -4,7 +4,7 @@ var objects = [];
 var objects4 = [];
 var objects5 = [];
 var objects6 = [];
-var raycaster;
+//var raycaster;
 
 var moveForward = false;
 var moveBackward = false;
@@ -167,13 +167,13 @@ function init() {
 	shape[0] = new THREE.Mesh( geometry, material2 );
 	shape[1] = new THREE.Mesh( geometry, material2 );
 	shape[2] = new THREE.Mesh( geometry, material2 );
-	shape[0].position.set(-3000,2000,-5000);
-	shape[1].position.set(-3000,2000,-5000);
-	shape[2].position.set(-3000,2000,-5000);
+	shape[0].position.set(-3000,3500,-5000);
+	shape[1].position.set(-3000,3500,-5000);
+	shape[2].position.set(-3000,3500,-5000);
 	scene.add(shape[0],shape[1],shape[2]);
   //moon light
 	var light2 = new THREE.PointLight(0xffffff);
-	light2.position.set(-3000,2000,-5000);
+	light2.position.set(-3000,3500,-5000);
 	scene.add(light2);
 
   //The star
@@ -209,7 +209,7 @@ function init() {
 	}
 
 
-  for (var i = 0; i < 1000; i++) {
+  for (var i = 0; i < 800; i++) {
   //编组
 	var treegroup = new THREE.Group();
   //树干
@@ -303,13 +303,14 @@ function init() {
 
   //Geometry to store all buildings of the city
   var cityGeometry = new THREE.Geometry();
-  for (var i = 0; i < 300; i++) {
+
+  for (var i = 0; i < 100; i++) {
   //Create geometry as a clone
   var building = new THREE.Mesh(geometry0.clone());
 
   //Randomize position and scale of the buildings
-  building.position.x = Math.floor( Math.random() * 200 - 100 ) * 20 + 2000; //200 - 100
-  building.position.z = Math.floor( Math.random() * 200 - 100 ) * 20 + 2000;
+  building.position.x = Math.floor( Math.random() * 2000 - 1000 ); //200 - 100
+  building.position.z = Math.floor( Math.random() * 200 + 1000 );
   building.scale.x  = Math.pow(Math.random(), 2) * 50 + 80; //控制大小，x=y=z
   building.scale.y  = Math.pow(Math.random(), 3) * building.scale.x * 8 + 8;
   building.scale.z  = building.scale.x;
@@ -318,13 +319,28 @@ function init() {
   THREE.GeometryUtils.merge(cityGeometry, building);
   }
 
-	for (var i = 0; i < 300; i++) {
+	for (var i = 0; i < 100; i++) {
+  //Create geometry as a clone
+  var building = new THREE.Mesh(geometry0.clone());
+
+  //Randomize position and scale of the buildings
+  building.position.x = Math.floor( Math.random() * 2000 - 1000 ); //200 - 100
+  building.position.z = Math.floor( Math.random() * 200 - 1000 );
+  building.scale.x  = Math.pow(Math.random(), 2) * 50 + 80; //控制大小，x=y=z
+  building.scale.y  = Math.pow(Math.random(), 3) * building.scale.x * 8 + 8;
+  building.scale.z  = building.scale.x;
+
+  //Merge all buildings to one model - cityGeometry
+  THREE.GeometryUtils.merge(cityGeometry, building);
+  }
+
+	for (var i = 0; i < 100; i++) {
 	//Create geometry as a clone
 	var building = new THREE.Mesh(geometry0.clone());
 
 	//Randomize position and scale of the buildings
-	building.position.x = Math.floor( Math.random() * 200 - 100 ) * 20 - 2000; //200 - 100
-	building.position.z = Math.floor( Math.random() * 200 - 100 ) * 20 - 2000;
+	building.position.x = Math.floor( Math.random() * 200 + 1000 ); //200 - 100
+	building.position.z = Math.floor( Math.random() * 2000 - 1000 );
 	building.scale.x  = Math.pow(Math.random(), 2) * 50 + 80; //控制大小，x=y=z
 	building.scale.y  = Math.pow(Math.random(), 3) * building.scale.x * 8 + 8;
 	building.scale.z  = building.scale.x;
@@ -332,6 +348,22 @@ function init() {
 	//Merge all buildings to one model - cityGeometry
 	THREE.GeometryUtils.merge(cityGeometry, building);
 	}
+
+	for (var i = 0; i < 100; i++) {
+	//Create geometry as a clone
+	var building = new THREE.Mesh(geometry0.clone());
+
+	//Randomize position and scale of the buildings
+	building.position.x = Math.floor( Math.random() * 200 - 1000 ); //200 - 100
+	building.position.z = Math.floor( Math.random() * 2000 - 1000 );
+	building.scale.x  = Math.pow(Math.random(), 2) * 50 + 80; //控制大小，x=y=z
+	building.scale.y  = Math.pow(Math.random(), 3) * building.scale.x * 8 + 8;
+	building.scale.z  = building.scale.x;
+
+	//Merge all buildings to one model - cityGeometry
+	THREE.GeometryUtils.merge(cityGeometry, building);
+	}
+
 
   //Mesh of the city
   var city = new THREE.Mesh(cityGeometry, material0);//定义所有城市的材质
@@ -342,9 +374,9 @@ function init() {
   scene.add(city);
 
 
-  //The first
+  //The first 菱形右下
 	var geometry1 = new THREE.OctahedronGeometry( 20 );
-	var geometry1Material = new THREE.MeshBasicMaterial({wireframe:true,color: 0xEE0000});
+	var geometry1Material = new THREE.MeshBasicMaterial({wireframe:true,color: 0xFFFF00});
 	var box1 = new THREE.Mesh( geometry1, geometry1Material );
 	box1.position.x = 300;
 	box1.position.y = 50;
@@ -352,13 +384,30 @@ function init() {
 
 	scene.add( box1 );
 
-	var light3 = new THREE.PointLight(0xEE0000,1, 100 );
+	var light3 = new THREE.PointLight(0xFFFF00,1, 100 );//嫩黄
 	light3.position.set(300,50,300);
 	scene.add(light3);
 
+	var loader = new THREE.FontLoader();
+	var geometrytext1;var mattext1;
+	loader.load( 'fonts/helvetiker_regular.typeface.json', function ( font ) {
+
+		geometrytext1 = new THREE.TextGeometry( 'Hello Forest !', {
+			font: font,
+			size: 1,
+			height: 0.05,
+		} );
+	 mattext1 = new THREE.MeshBasicMaterial({color: 0xFFFF00});
+
+
+  var text1 = new THREE.Mesh( geometrytext1, mattext1 );
+	text1.position.set(300,0,300);
+	scene.add(text1);
+	} );
+
 	//The second part
 	var geometry2 = new THREE.TetrahedronGeometry( 20 );
-	var geometry1Materia2 = new THREE.MeshBasicMaterial({wireframe:true,color: 0xEEEE00});
+	var geometry1Materia2 = new THREE.MeshBasicMaterial({wireframe:true,color: 0xFFFF00});
 	var box2 = new THREE.Mesh( geometry2, geometry1Materia2 );
 	box2.position.x = -300;
 	box2.position.y = 50;
@@ -366,14 +415,31 @@ function init() {
 
 	scene.add( box2 );
 
-	var light4 = new THREE.PointLight(0xEEEE00,1, 100 );
+	var light4 = new THREE.PointLight(0xFFFF00,1, 100 );
 	light4.position.set(-300,50,-300);
 	scene.add(light4);
 
+	var loader = new THREE.FontLoader();
+	var geometrytext2;var mattext2;
+	loader.load( 'fonts/helvetiker_regular.typeface.json', function ( font ) {
+
+		geometrytext2 = new THREE.TextGeometry( 'Hello Forest !', {
+			font: font,
+			size: 1,
+			height: 0.05,
+		} );
+	 mattext2 = new THREE.MeshBasicMaterial({color: 0xFFFF00});
+
+
+	var text2 = new THREE.Mesh( geometrytext2, mattext2 );
+	text2.position.set(-300,0,-300);
+	scene.add(text2);
+	} );
+
 
 	//part3
-  var geometry3 = new THREE.SphereGeometry( 20);
-	var geometry1Materia3 = new THREE.MeshBasicMaterial({wireframe:true,color: 0x00FFFF});
+  var geometry3 = new THREE.IcosahedronGeometry( 20 );
+	var geometry1Materia3 = new THREE.MeshBasicMaterial({wireframe:true,color: 0x00FF00});
   var box3 = new THREE.Mesh(geometry3, geometry1Materia3);
 	box3.position.x = -300;
 	box3.position.y = 50;
@@ -381,13 +447,30 @@ function init() {
 
 	scene.add(box3);
 
-	var light5 = new THREE.PointLight(0x00FFFF,1, 100 );
+	var light5 = new THREE.PointLight(0x00FF00,1, 100 );
 	light5.position.set(-300,50,300);
 	scene.add(light5);
 
+	var loader = new THREE.FontLoader();
+	var geometrytext3;var mattext3;
+	loader.load( 'fonts/helvetiker_regular.typeface.json', function ( font ) {
+
+		geometrytext3 = new THREE.TextGeometry( 'Hello Forest !', {
+			font: font,
+			size: 1,
+			height: 0.05,
+		} );
+	 mattext3 = new THREE.MeshBasicMaterial({color: 0x00FF00});
+
+
+	var text3 = new THREE.Mesh( geometrytext3, mattext3 );
+	text3.position.set(-300,0,300);
+	scene.add(text3);
+	} );
+
   //part4
 	var geometry4 = new THREE.BoxGeometry( 20,20,20);
-	var geometry1Materia4 = new THREE.MeshBasicMaterial({wireframe:true,color: 0x00FF00});
+	var geometry1Materia4 = new THREE.MeshBasicMaterial({wireframe:true,color: 0x00FF00});//翠绿
 	var box4 = new THREE.Mesh(geometry4, geometry1Materia4);
 	box4.position.x = 300;
 	box4.position.y = 50;
@@ -398,6 +481,23 @@ function init() {
 	var light6 = new THREE.PointLight(0x00FF00,1, 100 );
 	light6.position.set(300,50,-300);
 	scene.add(light6);
+
+	var loader = new THREE.FontLoader();
+	var geometrytext4;var mattext4;
+	loader.load( 'fonts/helvetiker_regular.typeface.json', function ( font ) {
+
+		geometrytext4 = new THREE.TextGeometry( 'Hello Forest !', {
+			font: font,
+			size: 1,
+			height: 0.05,
+		} );
+	 mattext4 = new THREE.MeshBasicMaterial({color: 0x00FF00});
+
+
+	var text4 = new THREE.Mesh( geometrytext4, mattext4 );
+	text4.position.set(300,0,-300);
+	scene.add(text4);
+	} );
 
 	//render the sence
 	var renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
@@ -449,25 +549,25 @@ function init() {
     box1.rotation.y += 0.03;
 		box1.rotation.x += 0.03;
 		box1.position.y = Math.sin(ts/500*Math.PI +
-	  box1.position.x*4.95 + box1.position.z/10)*5 + 100
+	  box1.position.x*4.95 + box1.position.z/10)*5 + 50
 
 		//the 2
     box2.rotation.y += 0.03;
 		box2.rotation.x += 0.03;
 		box2.position.y = Math.sin(ts/500*Math.PI +
-		box2.position.x*4.95 + box2.position.z/10)*5 + 100
+		box2.position.x*4.95 + box2.position.z/10)*5 + 50
 
 		//the 3
 		box3.rotation.y += 0.03;
 		box3.rotation.x += 0.03;
 		box3.position.y = Math.sin(ts/500*Math.PI +
-    box3.position.x*4.95 + box3.position.z/10)*5 + 100
+    box3.position.x*4.95 + box3.position.z/10)*5 + 50
 
 		//the 4
 		box4.rotation.y += 0.03;
 		box4.rotation.x += 0.03;
 		box4.position.y = Math.sin(ts/500*Math.PI +
-		box4.position.x*4.95 + box3.position.z/10)*5 + 100
+		box4.position.x*4.95 + box3.position.z/10)*5 + 50
 
 	scene.rotation.y += xSpeed;
 
