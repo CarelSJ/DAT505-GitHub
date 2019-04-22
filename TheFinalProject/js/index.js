@@ -7,7 +7,6 @@ var objects4 = [];
 var objects5 = [];
 var objects6 = [];
 var objects7 = [];
-//var raycaster;
 
 var moveForward = false;
 var moveBackward = false;
@@ -32,7 +31,7 @@ var de2ra = function(degree) {
 function init() {
 
 	var scene = new THREE.Scene();
-	scene.fog = new THREE.Fog( 0xE0FFFF, 1 , 2000 );//蓝色雾
+	scene.fog = new THREE.Fog( 0xE0FFFF, 1 , 1500 );//蓝色雾
 
 	var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );//相机
 
@@ -50,12 +49,6 @@ function init() {
 
 	var light2 = new THREE.AmbientLight( 0xFFFFE0, 0.5 ); // soft white light
   scene.add( light2 );
-
-/*
-	//Create a helper for the shadow camera (optional)
-	var helper = new THREE.CameraHelper( light.shadow.camera );
-	scene.add( helper );
-*/
 
 	//control the screen
 	controls = new THREE.PointerLockControls( camera );
@@ -135,7 +128,7 @@ function init() {
   audioLoader.load( 'js/sounds/bgm.mp3', function( buffer ) {
 	sound.setBuffer( buffer );
 	sound.setLoop( true );
-	sound.setVolume( 0.0 );
+	sound.setVolume( 1 );
 	sound.play();
   });
 
@@ -170,7 +163,6 @@ function init() {
 	geometry.applyMatrix( new THREE.Matrix4().makeRotationX( - Math.PI / 2 ) );
 	var texture = new THREE.TextureLoader().load("texture/grass.jpg");
 	material = new THREE.MeshLambertMaterial({map:texture});
-	//material = new THREE.MeshLambertMaterial({color: 0x556B2F});
 	mesh = new THREE.Mesh( geometry, material );
 	mesh.castShadow = true;
 	mesh.receiveShadow = true;
