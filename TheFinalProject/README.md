@@ -18,12 +18,21 @@
 
 ### Forest city -- An environment simulator about future city planning ###
 
-I think this final project can be defined as *An audiovisual interactive composition*. Because I want players (experiencers) to feel an atmosphere - a sense of calm and relaxation. A feeling that in a geometric world, the soul is no longer bound by anything (work, city, crowd, fast-paced life, etc.).
+I think this final project can be defined as *An audiovisual interactive composition*. Because I want players (experiencers) to feel an atmosphere -- a sense of calm and relaxation. A feeling that in a geometric world, the soul is no longer bound by anything (work, city, crowd, fast-paced life, etc.).
 
-On the other hand, I think it can be regarded as a narrative environment simulator. Because nowadays, with the development of urbanization, buildings are getting taller and taller, and green plants are becoming scarcer and scarcer. Although more and more modernization is a manifestation of the progress of human civilization, I still hope that there will be more green vegetation or "shadow of natural ecology" in the city. Therefore, I hope to use this work to show the concept of urban forest concisely.
+On the other hand, I think it also can be regarded as *A narrative environment simulator*. Because nowadays, with the development of urbanization, buildings are getting taller and taller, and green plants are becoming scarcer and scarcer. Although more and more modernization is a manifestation of the progress of human civilization, I still hope that there will be more green vegetation or 'shadow of natural ecology' in the city. Therefore, I hope to use this work to show the concept of urban forest concisely.
 
+I built a complex of buildings by simple for loop, object combination and cloning -- a forest-centered complex. At the same time, through the combination of geometry and the setting of size and position, I construct the main body of the forest -- different kinds of trees, flowers and so on. The sky is made by gradient method. Then the use of particle effects to create a mysterious atmosphere of the forest, or it can be used as a forest in mitigating the 'heat island effect' of the city as a manifestation. Finally, it is accompanied by the work of *Nao Kakimoto* (a famous Japanese music producer) -- *Forest*. With the birds singing in the song, I hope that the players can more truly appreciate the theme I want to express in this work -- **An atmosphere of forest -- relaxed and peaceful, and the appeal to build a low-carbon city.**
+
+So I named this work *Forest City*. Geometric objects are bound together to form different objects by group method, and randomly generated in different ranges to form the whole work. In fact, if it's a VR-style immersion experience, it might be better. But in order to display the effect and theme of the work more conveniently, I used keyboard and mouse control methods. Through the first angle of view to show the overall picture of the work. Moreover, the concept and advantages of forest city are also described in the project (in html).
 
 ### Description of Creative Sources  ###
+
+The inspiration of this work comes from a disaster film I saw a long time ago, *2012*.From this film, we know the global warming caused by human industrial activities has become the consensus of all mankind. So I use the form of green ecological part surrounded by buildings to show that it is an organic combination of high density cities and returning to green nature in the future.
+
+By randomizing the color, quantity, size and texture of the object, the overall picture is richer and more harmonious. Players can control the movement and jump of characters through **W, A, S, D, SPACE** on the keyboard. Use **mouse** movement to control looking around. This part of the code refers to the official website *controls / pointerlock* case. At the same time, because the position of some objects in the scene is randomly generated, there may be overlap between objects.
+
+Finally, I sincerely hope you could like my work.
 
 ### Code - index.html ###
 [The Final Project _ Forest cityh - index.html](https://github.com/CarelSJ/DAT505-GitHub/blob/master/TheFinalProject/index.html)
