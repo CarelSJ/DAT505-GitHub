@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <title>The Forest City (((;꒪ꈊ꒪;)))</title><!-- Set title of the prohect  -->
+<!-- Setting the Foundation Value of the Bounce Window  -->
+  <style>
+    html, body {
+      width: 100%;
+      height: 100%;
+    }
+    body {
+      background-color: #ffffff;
+      margin: 0;
+      overflow: hidden;
+      font-family: arial;
+    }
+
+    #blocker {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.5);
+    }
+
+    #instructions {
+      width: 100%;
+      height: 100%;
+      display: -webkit-box;
+      display: -moz-box;
+      display: box;
+      -webkit-box-orient: horizontal;
+      -moz-box-orient: horizontal;
+      box-orient: horizontal;
+      -webkit-box-pack: center;
+      -moz-box-pack: center;
+      box-pack: center;
+      -webkit-box-align: center;
+      -moz-box-align: center;
+      box-align: center;
+      color: #ffffff;
+      text-align: center;
+      cursor: pointer;
+    }
+	 #font{ width:400px;height:100px;}
+
+  </style>
+  <link rel="stylesheet" href="css/style.css"><!-- Setting up links between web pages and CSS  -->
+
+    <script src="build/three.js"></script><!-- Set the link of Three.js  -->
+
+    <script src="js/lib/PointerLockControls.js"></script><!-- Set the link Control code(W,A,S,D,SPACE and mouse) -->
+    <div id="blocker">
+
+    <div id="instructions"><!-- Create jump page basic values -->
+        <span style="font-size:40px">Click to know the Forest city</span>
+        <br/>
+        (W, A, S, D = Move, SPACE = Jump, MOUSE = Look around)
+        <br/>
+        (There may be some delay at the beginning of loading, please wait a moment.)
+        <br/>
+        (I hope you can enjoy your life in this Forest city (^_−)☆)
+    </div><!-- Setting the text content of the Bounce Window  -->
+    </div>
+</head>
+<body><!-- Create scrolling captions (basic values) and rolling content-->
+     <h1 id="font"><marquee behavior="scroll" direction="up" scrollamount="3">
+      Forest city -- forest city can directly absorb carbon released in the city.
+      At the same time, forest city can indirectly reduce carbon emissions by
+      slowing down the heat island effect and regulating the urban climate to
+      reduce the number of times we use air conditioning. As if people live in
+      'forest city' in 'natural oxygen bar', the ultimate goal is to reduce carbon
+      dioxide emissions, but also one of our cities. Clean and healthy 'lungs' allow
+      us to live in a sustainable living and development space.</marquee></h1>
+
+    <script  src="js/index.js"></script><!-- Call the JS part of the code-->
+</body>
+</html>
