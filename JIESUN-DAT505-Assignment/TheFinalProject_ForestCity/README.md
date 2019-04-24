@@ -46,7 +46,28 @@ The inspiration of this work comes from a disaster film I saw a long time ago, *
 
 By randomizing the color, quantity, size and texture of the object, the overall picture is richer and more harmonious. Players can control the movement and jump of characters through **W, A, S, D, SPACE** on the keyboard. Use **mouse** movement to control looking around. This part of the code refers to the official website *controls / pointerlock* case. At the same time, because the position of some objects in the scene is randomly generated, there may be overlap between objects.
 
+In short, this is a work about forests, cities, dreams, environmental protection, the future and low-carbon life.
 Finally, I sincerely hope you could like my work.
+
+
+## Sketch of works  ##
+![draft](https://github.com/CarelSJ/DAT505-GitHub/blob/master/images/draft.png)
+
+Composition of objects
+*  tree.1 = BoxBufferGeometry + CylinderBufferGeometry * 3
+*  tree.2 = BoxBufferGeometry + DodecahedronBufferGeometry
+*  tree.3 = BoxBufferGeometry + CylinderBufferGeometry
+*  flowers = BoxBufferGeometry * 4
+*  grass = BoxGeometry
+*  cloud = TetrahedronBufferGeometry * 2
+*  buildings = CubeGeometry
+*  ground = PlaneBufferGeometry
+*  sun = IcosahedronBufferGeometry * 3
+
+Music source:
+
+**Author ：Nao Kakimoto**
+**Song name ：Forest**
 
 ### Code - index.html ###
 [The Final Project _ Forest city - index.html](https://github.com/CarelSJ/DAT505-GitHub/blob/master/JIESUN-DAT505-Assignment/TheFinalProject_ForestCity/index.html)
