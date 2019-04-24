@@ -51,7 +51,7 @@ Finally, I sincerely hope you could like my work.
 
 
 ## Sketch of works  ##
-![draft](https://github.com/CarelSJ/DAT505-GitHub/blob/master/images/draft.png)
+![draft](https://github.com/CarelSJ/DAT505-GitHub/blob/master/images/draft.jpg)
 
 Composition of objects
 *  tree.1 = BoxBufferGeometry + CylinderBufferGeometry * 3
@@ -67,6 +67,7 @@ Composition of objects
 Music source:
 
 **Author ：Nao Kakimoto**
+
 **Song name ：Forest**
 
 ### Code - index.html ###
