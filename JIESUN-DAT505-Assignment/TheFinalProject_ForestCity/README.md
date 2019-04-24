@@ -720,3 +720,5 @@ if ( controls.getObject().position.y < 10 ) {//Set the height of the jump
 prevTime = time;
 }
 ```
+
+*  Because the number of objects generated in the scene is large, there may be a delay in loading.So I used some optimization schemes to alleviate this problem.
