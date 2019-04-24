@@ -26,3 +26,5 @@
 [Session8](https://github.com/CarelSJ/DAT505-GitHub/blob/master/Session8)
 
 [Session9](https://github.com/CarelSJ/DAT505-GitHub/blob/master/Session9)
+
+[JIESUN-DAT505-Assignment](https://github.com/CarelSJ/DAT505-GitHub/blob/master/JIESUN-DAT505-Assignment)

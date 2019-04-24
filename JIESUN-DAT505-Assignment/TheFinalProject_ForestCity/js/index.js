@@ -9,21 +9,22 @@ var objects6 = [];///Define Cloud
 var cubes1 = [];//Define the text1
 var cubes2 = [];//Define the text2
 //11-20 elements Define mouse and keyboard controls
-var moveForward = false;
+var moveForward = false;//Define the movement of roles
 var moveBackward = false;
 var moveLeft = false;
 var moveRight = false;
 var canJump = false;
 var prevTime = performance.now();
-var velocity = new THREE.Vector3();
-var direction = new THREE.Vector3();
-var vertex = new THREE.Vector3();
+var velocity = new THREE.Vector3();//Define the speed of Particle
+var direction = new THREE.Vector3();//Define the direction of Particle
+var vertex = new THREE.Vector3();//Define the vertex of Particle
 var rot = 0;
 //Define the velocity of particle effects
 var xSpeed, ySpeed;//the speed of x and y
 xSpeed = 0.0005;
 ySpeed = 0.001;
 //Define rotation angle(2PI)
+//In order to make the rotating object more convenient and the angle clearer
 var de2ra = function(degree) {
   return degree*(Math.PI/180);
 };
@@ -172,7 +173,7 @@ function init() {
 	shape[2].position.set(-3000,3500,-5000);
 	scene.add(shape[0],shape[1],shape[2]);
 
-  //Define the flowers(For loop )----200
+  //Define the flowers(For loop )----1000
   for (var i = 0; i < 1000; i++) {
 	  var flowergroup = new THREE.Group();//Create pedicel
 		var geomStem = new THREE.BoxBufferGeometry( 5,50,5,1,1,1 );
@@ -295,7 +296,7 @@ function init() {
 			treeBase3.castShadow = true;
 			treeBase3.receiveShadow = true;
 			treegroup3.add(treeBase3);
-      ////Define tree color (green1, green2, green3)
+      //Define tree color (green1, green2, green3)
       var Colors2 = {green1:0x548B54,green2:0x458B74,green3:0x8B8B00};//Define these three colors
       var treeColors = [Colors2.green1, Colors2.green2, Colors2.green3];//Add the three colours
       var treeColor = treeColors [Math.floor(Math.random()*3)];//Let these three colors appear randomly
