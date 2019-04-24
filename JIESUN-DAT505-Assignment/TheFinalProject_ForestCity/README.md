@@ -722,3 +722,31 @@ prevTime = time;
 ```
 
 *  Because the number of objects generated in the scene is large, there may be a delay in loading.So I used some optimization schemes to alleviate this problem.
+
+    1.Share geometry and material as much as possible.
+
+    2.Preloading -- Before loading the page, you can give a buffer to the loading page.
+
+    3.Use BufferGeometry instead of BufferGeometry. Because BufferGeometry caches grid models with high performance.
+
+    4.Learn to use clone () method.
+
+    5.The fewer surfaces the better, the more elaborate the model will increase the rendering overhead.
+
+    6.Do less under the request Animation Frame () animation. Because request Animation Frame () executes 60 times per second.
+
+    7.Use method of 'geometry.merge()' to combine the objects.
+
+Application of geometry.merge()
+```javascript
+// Merge model, merge method
+var geometry = new THREE.Geometry();
+//Merge method combines two geometric objects or geometric objects in Object 3D (using object transformation) to merge vertices, surfaces and UVs of geometric objects separately.
+//THREE.GeometryUtils: .merge() has been moved to Geometry. Use geometry.merge( geometry2, matrix, materialIndexOffset ) instead.  -- If the new version uses the old version of the report this error
+for(var i=0; i<20000; i++){
+    var cube = addCube(); // A geometric model of random position is created.
+    cube.updateMatrix(); // Manually updating the matrix of the model
+    geometry.merge(cube.geometry, cube.matrix); // Merge geometries
+}
+scene.add(new THREE.Mesh(geometry, cubeMaterial));
+```
