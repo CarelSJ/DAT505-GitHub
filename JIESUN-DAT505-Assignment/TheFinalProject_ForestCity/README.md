@@ -774,3 +774,5 @@ for(var i=0; i<20000; i++){
 }
 scene.add(new THREE.Mesh(geometry, cubeMaterial));
 ```
+
+## Thanks for your time (^_−)☆ ##
